@@ -1,0 +1,24 @@
+package seng330;
+
+
+message Player {
+	enum charName {
+		Wilfred = 1;
+		James = 2;
+		Bridget = 3;
+		Doge = 4;
+		Moad = 5;
+	}
+	message Character {
+		required int32 x = 1;
+		required int32 y = 2;
+		required charName name = 3;
+		required int32 remaininghealth = 4;
+	}
+	repeated Character characters = 1;
+}
+
+message Game {
+	required Player current_player = 1; 
+	required Player other_player = 2;
+}

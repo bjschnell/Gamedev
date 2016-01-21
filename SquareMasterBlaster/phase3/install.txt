@@ -1,0 +1,9 @@
+install.txt 
+
+Following installation, type the following commands into the console:
+	1) navigate to project directory
+	2) python setup.py build
+	3) python setup.py install
+	4) SquareMasterBlaster.py
+
+note: you may need to run as a system admin 
