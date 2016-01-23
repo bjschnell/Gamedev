@@ -1,4 +1,5 @@
 # Gamedev
-Game projects.
+Repository for games created by myself, Brady Schnell. 
 
-What I lack in experience I make up for in cliches.
+Any code found here is the property of Brady Schnell and Co-authors. 
+Please send any questions to Bradyschnell@gmail.com. 
