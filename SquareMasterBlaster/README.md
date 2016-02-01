@@ -19,4 +19,5 @@ Instructions:
 To move a character, select it on the grid with the mouse, press m on the keyboard, and select the square where 
 you would like to move the character. 
 
-to attac
+to attack select the character you wish to attack with. Press a on the keyboard and select the character you
+would like to attack. 
