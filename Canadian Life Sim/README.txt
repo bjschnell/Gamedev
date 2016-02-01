@@ -1,3 +1,8 @@
+Canadian Life Simulator
+A life simulator that is intended to demonstrate the level of prejudice faced by
+various groups within canadian society. 
+Created and Developed by Brady Schnell.
+
 To Install:
 1. Open CanadianLifeSimulator.zip using winzip or winrarr. Then extract the folder to somewhere on your computer (ex. Desktop or My Documents)
 
