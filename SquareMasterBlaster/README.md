@@ -21,3 +21,9 @@ you would like to move the character.
 
 to attack select the character you wish to attack with. Press a on the keyboard and select the character you
 would like to attack. 
+
+Contribution
+-------------
+Brady Schnell - designed overall game theme, created characters and balanced characters attributes. 
+                contributed and implemented various features in the game code. Co-authored software documentation
+                with the other members of the group. 
