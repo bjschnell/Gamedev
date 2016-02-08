@@ -1,5 +1,9 @@
 install.txt 
 
+This install version is not current and will not run the most up to date version.
+Read the readme for instructions on how to run the latest version.
+
+
 To build Square Master Blaster, install setuptools by following the instructions at https://pypi.python.org/pypi/setuptools#using-setuptools-and-easyinstall for your operating system. 
 
 Following installation, type the following commands into the console:
