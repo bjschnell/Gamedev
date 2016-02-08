@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3895EFBF-BC5C-4089-84F7-1E4574F8C670}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Server</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AI\IPlayerAI.cs" />
+    <Compile Include="AI\PlayerAI.cs" />
+    <Compile Include="AI\PlayerMerge.cs" />
+    <Compile Include="AI\PlayerPlayTile.cs" />
+    <Compile Include="AI\PlayerTurn.cs" />
+    <Compile Include="Communication\RemoteAI.cs" />
+    <Compile Include="Communication\TcpServer.cs" />
+    <Compile Include="GameEngine\Engine.cs" />
+    <Compile Include="GameEngine\IEngineCallback.cs" />
+    <Compile Include="Framework.cs" />
+    <Compile Include="Map\GameMap.cs" />
+    <Compile Include="Map\IMapInfo.cs" />
+    <Compile Include="Map\MapTile.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Communication\FifoByteBuffer.cs" />
+    <Compile Include="Sprites\AvatarSprites.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AvatarSprites.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sprites\CardSprites.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CardSprites.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sprites\CompanySprites.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanySprites.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sprites\MapSprites.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MapSprites.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sprites\StatusSprites.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatusSprites.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DebugWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DebugWindow.designer.cs">
+      <DependentUpon>DebugWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GameSpeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GameSpeed.Designer.cs">
+      <DependentUpon>GameSpeed.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\DebugWindow.resx">
+      <DependentUpon>DebugWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GameSpeed.resx">
+      <DependentUpon>GameSpeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UI\IUserDisplay.cs" />
+    <Compile Include="UI\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Sprites\AvatarSprites.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AvatarSprites.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprites\StatusSprites.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StatusSprites.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UI\MapDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\MapDisplay.designer.cs">
+      <DependentUpon>MapDisplay.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\MapDisplay.resx">
+      <DependentUpon>MapDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UI\PlayCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PlayCard.Designer.cs">
+      <DependentUpon>PlayCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PlayerScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PlayerScore.Designer.cs">
+      <DependentUpon>PlayerScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PlayerStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PlayerStatus.Designer.cs">
+      <DependentUpon>PlayerStatus.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\PlayCard.resx">
+      <DependentUpon>PlayCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PlayerStatus.resx">
+      <DependentUpon>PlayerStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PlayerScore.resx">
+      <DependentUpon>PlayerScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="UI\StatusMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\StatusMessages.Designer.cs">
+      <DependentUpon>StatusMessages.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\StatusMessages.resx">
+      <DependentUpon>StatusMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Units\HotelChain.cs" />
+    <Compile Include="Units\HotelStock.cs" />
+    <Compile Include="Units\Player.cs" />
+    <Compile Include="Units\PlayerTile.cs" />
+    <Compile Include="Units\SpecialPowers.cs" />
+    <Compile Include="Units\StockOwner.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\Trap.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Sprites\CardSprites.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CardSprites.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprites\CompanySprites.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CompanySprites.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprites\MapSprites.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MapSprites.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\Avatars\avatar1.png" />
+    <Content Include="Images\Avatars\avatar2.png" />
+    <Content Include="Images\Avatars\avatar3.png" />
+    <Content Include="Images\Avatars\avatar4.png" />
+    <Content Include="Images\Cards\cashier.png" />
+    <Content Include="Images\Cards\houses.png" />
+    <Content Include="Images\Cards\money.png" />
+    <Content Include="Images\Cards\money2.png" />
+    <Content Include="Images\Cards\office-building.png" />
+    <Content Include="Images\Companies\amazon.png" />
+    <Content Include="Images\Companies\apple.png" />
+    <Content Include="Images\Icons\atom.ico" />
+    <Content Include="Images\Icons\debug_view.ico" />
+    <Content Include="Images\Icons\table_sql.ico" />
+    <Content Include="Images\Icons\window_application.ico" />
+    <Content Include="Images\Map\Building_01.png" />
+    <Content Include="Images\Map\Building_02.png" />
+    <Content Include="Images\Map\Building_03.png" />
+    <Content Include="Images\Map\Building_04.png" />
+    <Content Include="Images\Map\Building_05.png" />
+    <Content Include="Images\Map\Building_06.png" />
+    <Content Include="Images\Map\Building_07.png" />
+    <Content Include="Images\Companies\facebook.png" />
+    <Content Include="Images\Companies\google.png" />
+    <Content Include="Images\Companies\hp.png" />
+    <Content Include="Images\Companies\jetbrains.png" />
+    <Content Include="Images\Companies\linkedin.png" />
+    <Content Include="Images\Companies\microsoft.png" />
+    <Content Include="Images\Companies\oracle.png" />
+    <Content Include="Images\Map\office.png" />
+    <Content Include="Images\Map\park4.png" />
+    <Content Include="Images\Map\road.png" />
+    <Content Include="Images\Companies\sfdc.png" />
+    <Content Include="Images\Companies\twitter.png" />
+    <Content Include="Images\Companies\windward.png" />
+    <Content Include="Images\Status\bug_yellow.png" />
+    <Content Include="Images\Status\client_network.png" />
+    <Content Include="Images\Status\debug_reset.png" />
+    <Content Include="Images\Status\debug_run.png" />
+    <Content Include="Images\Status\debug_view.png" />
+    <Content Include="Images\Status\environment_error.png" />
+    <Content Include="Images\Status\flash.png" />
+    <Content Include="Images\Status\gauge.png" />
+    <Content Include="Images\Status\loudspeaker.png" />
+    <Content Include="Images\Status\loudspeaker_preferences.png" />
+    <Content Include="Images\Status\media_pause.png" />
+    <Content Include="Images\Status\media_play.png" />
+    <Content Include="Images\Status\media_stop_red.png" />
+    <Content Include="Images\Status\mug.png" />
+    <Content Include="Images\Status\signal_flag_checkered.png" />
+    <Content Include="Images\Status\smartcard.png" />
+    <Content Include="Images\Status\star_green.png" />
+    <Content Include="Images\Status\star_red.png" />
+    <Content Include="Images\Status\stopwatch.png" />
+    <Content Include="Images\Status\table_sql.png" />
+    <Content Include="Images\Status\user1_add.png" />
+    <Content Include="Images\Status\user1_earth.png" />
+    <Content Include="Images\Status\view.png" />
+    <Content Include="Images\Status\warning.png" />
+    <Content Include="Images\Status\warning_grey.png" />
+    <Content Include="Images\Status\window_application.png" />
+    <EmbeddedResource Include="Sounds\Crowding Cheering Charge-SoundBible.com-284606164.wav" />
+    <EmbeddedResource Include="Sounds\Town_Traffic_01.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
